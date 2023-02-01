@@ -345,6 +345,9 @@ PRODUCT_PACKAGES += \
     LineageSystemUIOverlayDevice \
     NfcOverlayMunch \
     SettingsOverlayDevice \
+    SettingsOverlay22021211RC \
+    SettingsOverlay22021211RG \
+    SettingsOverlay22021211RI \
     SettingsProviderOverlayDevice \
     SystemUIOverlayDevice \
     TelephonyOverlayDevice \
