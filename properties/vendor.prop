@@ -266,6 +266,9 @@ ro.hardware.keystore_desede=true
 # Mdm helper
 persist.vendor.mdm_helper.fail_action=retry
 
+# Media
+debug.stagefright.c2inputsurface=-1
+
 # NFC
 ro.camera.notify_nfc=1
 
