@@ -260,6 +260,9 @@ debug.hwui.target_cpu_time_percent=30
 # Keystore
 ro.hardware.keystore_desede=true
 
+# Mdm helper
+persist.vendor.mdm_helper.fail_action=retry
+
 # NFC
 ro.camera.notify_nfc=1
 
