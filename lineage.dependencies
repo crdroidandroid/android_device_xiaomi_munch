@@ -4,6 +4,10 @@
     "target_path": "device/xiaomi/sm8250-common"
   },
   {
+    "repository": "LineageOS/android_kernel_xiaomi_sm8250",
+    "target_path": "kernel/xiaomi/sm8250"
+  },
+  {
     "repository": "rik-x777/android_vendor_xiaomi_sm8250-common",
     "target_path": "vendor/xiaomi/sm8250-common"
   },
@@ -18,5 +22,5 @@
   {
     "repository": "LineageOS/android_hardware_xiaomi",
     "target_path": "hardware/xiaomi"
-  },
+  }
 ]
