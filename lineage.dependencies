@@ -1,6 +1,22 @@
 [
   {
-    "repository": "android_device_xiaomi_sm8250-common",
+    "repository": "rik-x777/android_device_xiaomi_sm8250-common",
     "target_path": "device/xiaomi/sm8250-common"
-  }
+  },
+  {
+    "repository": "rik-x777/android_vendor_xiaomi_sm8250-common",
+    "target_path": "vendor/xiaomi/sm8250-common"
+  },
+  {
+    "repository": "rik-x777/android_vendor_xiaomi_munch",
+    "target_path": "vendor/xiaomi/munch"
+  },
+  {
+    "repository": "rik-x777/android_vendor_xiaomi_munch-firmware",
+    "target_path": "vendor/xiaomi/munch-firmware"
+  },
+  {
+    "repository": "LineageOS/android_hardware_xiaomi",
+    "target_path": "hardware/xiaomi"
+  },
 ]
