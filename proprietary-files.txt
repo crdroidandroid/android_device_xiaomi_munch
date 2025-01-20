@@ -1,4 +1,4 @@
-# Unpinned blobs from missi_phone_global-user 14 UKQ1.231207.002 V816.0.5.0.ULMMIXM release-keys
+# Unpinned blobs from missi_phone_global-user 14 UKQ1.231207.002 V816.0.8.0.ULMMIXM release-keys
 
 # ACDB
 vendor/etc/acdbdata/Tutu/Tutu_Bluetooth_cal.acdb
@@ -178,7 +178,7 @@ vendor/lib64/com.qti.feature2.sr.so
 vendor/lib64/com.qti.feature2.stub.so
 vendor/lib64/com.qti.feature2.swmf.so
 vendor/lib64/libHalSuperSensorServer.so
-vendor/lib64/libMIAIHDRhvx_interface.so;DISABLE_CHECKELF
+vendor/lib64/libMIAIHDRhvx_interface.so
 vendor/lib64/libSNPE.so
 vendor/lib64/libSuperSensor.so
 vendor/lib64/libSuperSensorCPU.so
@@ -188,12 +188,12 @@ vendor/lib64/libarcdualcamsat.so
 vendor/lib64/libarcmulticamsat.so
 vendor/lib64/libarcsoft_beautyshot.so
 vendor/lib64/libarcsoft_hdr_detection.so
-vendor/lib64/libarcsoft_hdrplus_hvx_stub.so;DISABLE_CHECKELF
+vendor/lib64/libarcsoft_hdrplus_hvx_stub.so
 vendor/lib64/libarcsoft_high_dynamic_range.so
 vendor/lib64/libarcsoft_mf_superresolution.so
 vendor/lib64/libarcsoft_portrait_lighting.so
 vendor/lib64/libarcsoft_portrait_lighting_c.so
-vendor/lib64/libarcsoft_super_night_raw.so;DISABLE_CHECKELF
+vendor/lib64/libarcsoft_super_night_raw.so
 vendor/lib64/libbeauty_face_interface.so
 vendor/lib64/libc++_shared.so
 vendor/lib64/libcamera_dirty.so
@@ -228,7 +228,7 @@ vendor/lib64/libmialgo_utils.so
 vendor/lib64/libmialgo_video_colourkeeping.so
 vendor/lib64/libmialgo_video_enhance.so
 vendor/lib64/libmialgo_video_seg_depth.so
-vendor/lib64/libmialgoengine.so;DISABLE_CHECKELF
+vendor/lib64/libmialgoengine.so
 vendor/lib64/libmibokeh_845_video.so
 vendor/lib64/libmibokeh_855.so
 vendor/lib64/libmmcamera_faceproc.so
@@ -897,6 +897,19 @@ system_ext/lib64/libmmosal.so
 system_ext/lib64/libmmparser_lite.so
 vendor/lib/libmmosal.so;MODULE_SUFFIX=_vendor
 
+# Media (Codec2)
+vendor/bin/hw/vendor.qti.media.c2@1.0-service
+vendor/etc/init/vendor.qti.media.c2@1.0-service.rc
+vendor/etc/seccomp_policy/codec2.vendor.base-arm.policy
+vendor/etc/seccomp_policy/codec2.vendor.ext-arm.policy
+vendor/etc/vintf/manifest/c2_manifest_vendor.xml
+vendor/lib/libqcodec2_base.so
+vendor/lib/libqcodec2_basecodec.so
+vendor/lib/libqcodec2_core.so
+vendor/lib/libqcodec2_platform.so
+vendor/lib/libqcodec2_utils.so
+vendor/lib/libqcodec2_v4l2codec.so
+
 # Mink-Lowi Interface daemon
 vendor/bin/mlid
 vendor/lib64/libminksocket.so
@@ -1312,7 +1325,7 @@ vendor/etc/wifi/aoa_cldb_falcon.bin
 vendor/etc/wifi/aoa_cldb_swl14.bin
 
 # WiFi Display
-framework/WfdCommon.jar
+system/framework/WfdCommon.jar
 system_ext/bin/wfdservice64
 system_ext/etc/init/wfdservice.rc
 system_ext/etc/permissions/wfd-system-ext-privapp-permissions-qti.xml
