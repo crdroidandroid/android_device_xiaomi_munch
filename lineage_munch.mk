@@ -16,6 +16,7 @@ $(call inherit-product, device/xiaomi/munch/device.mk)
 
 # crDroid Flags
 TARGET_BOOT_ANIMATION_RES := 1080
+TARGET_DISABLE_MATLOG := true
 
 PRODUCT_NAME := lineage_munch
 PRODUCT_DEVICE := munch
