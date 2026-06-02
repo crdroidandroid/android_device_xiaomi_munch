@@ -17,8 +17,8 @@ $(call inherit-product, device/xiaomi/munch/device.mk)
 PRODUCT_NAME := lineage_munch
 PRODUCT_DEVICE := munch
 PRODUCT_MANUFACTURER := Xiaomi
-PRODUCT_BRAND := Redmi
-PRODUCT_MODEL := 22021211RC
+PRODUCT_BRAND := POCO
+PRODUCT_MODEL := POCO F4
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
