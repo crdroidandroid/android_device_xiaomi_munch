@@ -7,7 +7,6 @@
 DEVICE_PATH := device/xiaomi/munch
 
 # A/B
-ifeq ($(TARGET_IS_VAB),true)
 BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
 AB_OTA_UPDATER := true
 
@@ -22,9 +21,6 @@ AB_OTA_PARTITIONS += \
     vbmeta_system \
     vendor \
     vendor_boot
-else
-AB_OTA_UPDATER := false
-endif
 
 # Architecture
 TARGET_ARCH := arm64
@@ -78,9 +74,6 @@ BOARD_USES_ADRENO := true
 TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS := 0x546C00000000
 TARGET_GRALLOC_HANDLE_HAS_RESERVED_SIZE := true
 TARGET_NO_RAW10_CUSTOM_FORMAT := true
-ifeq ($(TARGET_HAS_UDFPS),true)
-TARGET_USES_FOD_ZPOS := true
-endif
 
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/configs/config.fs
@@ -88,17 +81,8 @@ TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/configs/config.fs
 # Firmware
 -include vendor/xiaomi/munch-firmware/BoardConfigVendor.mk
 
-# Fingerprint
-ifeq ($(TARGET_HAS_UDFPS),true)
-TARGET_SURFACEFLINGER_UDFPS_LIB := //hardware/xiaomi:libudfps_extension.xiaomi
-endif
-
 # Kernel
-ifeq ($(PRODUCT_VIRTUAL_AB_OTA),true)
 BOARD_BOOT_HEADER_VERSION := 3
-else
-BOARD_BOOT_HEADER_VERSION := 2
-endif
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom androidboot.console=ttyMSM0 androidboot.memcg=1 lpm_levels.sleep_disabled=1 msm_rtb.filter=0x237 service_locator.enable=1 androidboot.usbcontroller=a600000.dwc3 swiotlb=2048 loop.max_part=7 cgroup.memory=nokmem,nosocket reboot=panic_warm
@@ -120,18 +104,9 @@ TARGET_OTA_ASSERT_DEVICE := munch,munch_global,munch_in
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
-ifeq ($(TARGET_IS_VAB),true)
 BOARD_BOOTIMAGE_PARTITION_SIZE := 201326592
 BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 100663296
-else
-BOARD_BOOTIMAGE_PARTITION_SIZE := 134217728
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 134217728
-endif
 BOARD_DTBOIMG_PARTITION_SIZE := 33554432
-ifneq ($(TARGET_IS_VAB),true)
-BOARD_CACHEIMAGE_PARTITION_SIZE := 402653184
-BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
-endif
 BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
 BOARD_USES_METADATA_PARTITION := true
 
@@ -179,17 +154,9 @@ TARGET_ODM_PROP += $(DEVICE_PATH)/configs/props/odm.prop
 TARGET_PRODUCT_PROP += $(DEVICE_PATH)/configs/props/product.prop
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/configs/props/system.prop
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/configs/props/vendor.prop
-ifneq ($(TARGET_IS_TABLET),true)
-TARGET_VENDOR_PROP += $(DEVICE_PATH)/configs/props/vendor_phone.prop
-endif
 
 # Recovery
-ifeq ($(TARGET_IS_VAB),true)
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab_AB.qcom
-else
-BOARD_INCLUDE_RECOVERY_DTBO := true
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
-endif
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
@@ -199,13 +166,6 @@ TARGET_RELEASETOOLS_EXTENSIONS ?= $(DEVICE_PATH)
 
 # RIL
 ENABLE_VENDOR_RIL_SERVICE := true
-
-# Rootdir
-ifeq ($(TARGET_IS_VAB),true)
-SOONG_CONFIG_XIAOMI_KONA_PARTITION_SCHEME := vab
-else
-SOONG_CONFIG_XIAOMI_KONA_PARTITION_SCHEME := a
-endif
 
 # Security patch level
 BOOT_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
@@ -222,10 +182,8 @@ BUILD_BROKEN_VENDOR_PROPERTY_NAMESPACE := true
 # Soong
 SOONG_CONFIG_NAMESPACES += XIAOMI_KONA
 SOONG_CONFIG_XIAOMI_KONA := \
-    PARTITION_SCHEME \
     WIFI_SYMLINK_VERSION
 
-SOONG_CONFIG_XIAOMI_KONA_PARTITION_SCHEME ?= a
 SOONG_CONFIG_XIAOMI_KONA_WIFI_SYMLINK_VERSION ?= v1
 
 # Verified Boot
@@ -240,9 +198,7 @@ BOARD_AVB_RECOVERY_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
 BOARD_AVB_RECOVERY_ALGORITHM := SHA256_RSA4096
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX := 1
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
-ifeq ($(TARGET_IS_VAB),true)
 BOARD_MOVE_GSI_AVB_KEYS_TO_VENDOR_BOOT := true
-endif
 
 # VINTF
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
@@ -250,9 +206,6 @@ DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
     hardware/qcom-caf/common/vendor_framework_compatibility_matrix.xml \
     hardware/xiaomi/vintf/xiaomi_framework_compatibility_matrix.xml
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/configs/hidl/manifest.xml
-ifneq ($(TARGET_IS_TABLET),true)
-DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/configs/hidl/manifest_phone.xml
-endif
 DEVICE_MATRIX_FILE += hardware/qcom-caf/common/compatibility_matrix.xml
 ODM_MANIFEST_SKUS += nfc
 ODM_MANIFEST_NFC_FILES := $(DEVICE_PATH)/configs/hidl/manifest_nfc.xml
