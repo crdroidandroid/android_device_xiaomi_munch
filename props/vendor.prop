@@ -99,6 +99,39 @@ vendor.audio.volume.headset.gain.depcal=true
 vendor.audio_hal.in_period_size=144
 vendor.audio_hal.period_size=192
 vendor.voice.path.for.pcm.voip=true
+persist.vendor.audio.delta.refresh=true
+persist.vendor.audio.misound.disable=true
+ro.audio.monitorRotation=true
+ro.vendor.audio.afe.record=true
+ro.vendor.audio.dump.mixer=true
+ro.vendor.audio.feature.fade=true
+ro.vendor.audio.gain.support=true
+ro.vendor.audio.karaok.support=true
+ro.vendor.audio.multiroute=true
+ro.vendor.audio.shortvideo.index=80
+ro.vendor.audio.soundtrigger.appdefine.cnn.level=35
+ro.vendor.audio.soundtrigger.appdefine.gmm.level=55
+ro.vendor.audio.soundtrigger.appdefine.gmm.user.level=65
+ro.vendor.audio.soundtrigger.appdefine.vop.level=10
+ro.vendor.audio.soundtrigger.lowpower=true
+ro.vendor.audio.soundtrigger.snr=16
+ro.vendor.audio.soundtrigger=sva
+ro.vendor.audio.soundtrigger.training.level=50
+ro.vendor.audio.soundtrigger.xanzn.cnn.level=80
+ro.vendor.audio.soundtrigger.xanzn.gmm.level=45
+ro.vendor.audio.soundtrigger.xanzn.gmm.user.level=30
+ro.vendor.audio.soundtrigger.xanzn.vop.level=10
+ro.vendor.audio.soundtrigger.xatx.cnn.level=45
+ro.vendor.audio.soundtrigger.xatx.gmm.level=25
+ro.vendor.audio.soundtrigger.xatx.gmm.user.level=40
+ro.vendor.audio.soundtrigger.xatx.vop.level=-10
+ro.vendor.audio.spk.clean=true
+ro.vendor.audio.spk.stereo=true
+ro.vendor.audio.voice.volume.boost=none
+vendor.audio.adm.buffering.ms=2
+vendor.audio.lowpower=true
+vendor.audio.offload.buffer.size.kb=256
+vendor.audio_hal.period_multiplier=2
 
 # Bluetooth
 bluetooth.auto_connect_profiles.enabled=true
@@ -185,6 +218,8 @@ drm.service.enabled=true
 
 # Fingerprint
 persist.vendor.qfp=false
+persist.vendor.fingerprint.sensor_location=1080|965|115|local:4630946736638489729
+persist.vendor.fingerprint.type=side
 
 # FUSE
 persist.sys.fuse.passthrough.enable=true
@@ -233,6 +268,12 @@ vendor.power.pasr.enabled=false
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
 vendor.perf.framepacing.enable=1
+
+# Refresh Rate
+ro.surface_flinger.use_content_detection_for_refresh_rate=true
+ro.surface_flinger.set_display_power_timer_ms=1000
+ro.surface_flinger.set_idle_timer_ms=1000
+ro.surface_flinger.set_touch_timer_ms=1000
 
 # Seamless transfer
 sys.fflag.override.settings_seamless_transfer=true
