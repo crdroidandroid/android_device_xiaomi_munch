@@ -63,6 +63,7 @@ persist.log.tag.TrafficStats=S
 persist.log.tag.ContrastColorUtil=S
 persist.log.tag.OpenGLRenderer=S
 persist.log.tag.ultrasound_extn=S
+persist.log.tag.BLASTBufferQueue=S
 
 # Netflix
 ro.netflix.bsp_rev=Q8250-19134-1
